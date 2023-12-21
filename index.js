@@ -15,6 +15,7 @@ io.on('connection', () => {
 
 app.get('/hooks', (req, res) => {
   const payload = req.body;
+  console.log("No, error occuring")
   io.emit('notification', { payload });
   res.json({
     'success': 'ok',
