@@ -13,9 +13,9 @@ io.on('connection', () => {
   console.log('user connected');
 });
 
-app.get('/opportunities', (req, res) => {
+app.get('/hooks', (req, res) => {
   const payload = req.body;
-  io.emit('opportunites', { payload });
+  io.emit('notification', { payload });
   res.json({
     'success': 'ok',
   });
