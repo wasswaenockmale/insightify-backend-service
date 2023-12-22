@@ -21,20 +21,22 @@ io.on('connection', () => {
 });
 
 app.get('/hooks', (req, res) => {
-  const payload = req.body;
+  // const payload = req.body;
   console.log("No, error occuring");
   io.emit('notification', { payload });
-  // res.json({
-  //   'success': 'ok',
-  // });
+  res.json({
+    'success': 'ok',
+    'hooks':'yes'
+  });
 })
 
 app.get('/tech-tips', (req, res) => {
-  const payload = req.body;
+  // const payload = req.body;
   io.emit('tech-tips', { payload });
-  // res.json({
-  //   'success': 'ok'
-  // });
+  res.json({
+    'success': 'ok',
+    'tech-tips':'ok'
+  });
 })
 
 
