@@ -11,17 +11,18 @@ const io = new Server(server);
 
 app.use(express.json());
 
-app.get('/hooks', (req, res) => {
+io.on('connection', (socket) => {
+  console.log('user connected', socket);
+});
+
+app.post('/hooks', (req, res) => {
   const payload = req.body;
-  console.log("No, error occuring");
-  io.on('connection', (socket) => {
-    console.log('user connected', socket);
-    socket.emit('notifications', {'data': payload ?? 'not valid'})
-  });
+  console.log("No, error occuring", payload);
   res.json({
     'success': 'ok',
-    'hooks':'yes'
+    'hooks':'it works'
   });
+  io.emit('notifications', { 'data': payload ?? 'not valid' });
 })
 
 
