@@ -12,7 +12,7 @@ const io = new Server(server);
 app.use(express.json());
 
 io.on('connection', (socket) => {
-  console.log('user connected', socket);
+  console.log('user connected', socket.client);
 });
 
 app.post('/hooks', (req, res) => {
